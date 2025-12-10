@@ -1,0 +1,22 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = "aeiouAEIOU"
+        result = list(s)
+        
+        vowel_positions = []
+        vowel_chars = []
+        
+        # collect vowel positions and chars
+        for i in range(len(s)):
+            if s[i] in vowels:
+                vowel_positions.append(i)
+                vowel_chars.append(s[i])
+        
+        # reverse the vowels
+        vowel_chars.reverse()
+        
+        # put them back
+        for index, char in zip(vowel_positions, vowel_chars):
+            result[index] = char
+        
+        return "".join(result)
